@@ -1,39 +1,43 @@
 {
-  "name": "globalgroundsnews",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@next-auth/upstash-redis-adapter": "^3.0.4",
-    "@upstash/redis": "^1.28.2",
-    "button": "^1.1.1",
-    "class-variance-authority": "^0.7.0",
-    "jsonwebtoken": "^9.0.2",
-    "lucide-react": "^0.314.0",
-    "next": "14.1.0",
-    "next-auth": "^4.24.5",
-    "node": "^21.6.1",
-    "react": "^18.2.0",
-    "react-dom": "^18",
-    "react-hot-toast": "^2.4.1",
-    "redis": "^4.6.12",
-    "tailwind-merge": "^2.2.1",
-    "ui": "^0.2.4"
-  },
-  "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "autoprefixer": "^10.4.17",
-    "eslint": "^8",
-    "eslint-config-next": "14.1.0",
-    "postcss": "^8.4.33",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5"
-  }
+    "name": "globalgroundsnews",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint"
+    },
+    "dependencies": {
+        "@hookform/resolvers": "^2.4.1",
+        "@next-auth/upstash-redis-adapter": "^3.0.4",
+        "@upstash/redis": "^1.28.2",
+        "axios": "^1.6.7",
+        "button": "^1.1.1",
+        "class-variance-authority": "^0.7.0",
+        "jsonwebtoken": "^9.0.2",
+        "lucide-react": "^0.314.0",
+        "next": "14.1.0",
+        "next-auth": "^4.24.5",
+        "node": "^21.6.1",
+        "react": "^18.2.0",
+        "react-dom": "^18",
+        "react-hook-form": "^7.10.1",
+        "react-hot-toast": "^2.4.1",
+        "redis": "^4.6.12",
+        "tailwind-merge": "^2.2.1",
+        "ui": "^0.2.4",
+        "zod": "^3.8.0"
+    },
+    "devDependencies": {
+        "@types/node": "^20",
+        "@types/react": "^18",
+        "@types/react-dom": "^18",
+        "autoprefixer": "^10.4.17",
+        "eslint": "^8",
+        "eslint-config-next": "14.1.0",
+        "postcss": "^8.4.33",
+        "tailwindcss": "^3.4.1",
+        "typescript": "^5"
+    }
 }
