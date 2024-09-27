@@ -5,13 +5,13 @@ const withPWA = require('next-pwa')({
   // Additional PWA options if needed
 });
 
-const withCloudflarePages = require('@cloudflare/next-on-pages/with-cloudflare');
+const { withCloudflare } = require('@cloudflare/next-on-pages/plugin');
 const { withPlugins } = require('next-compose-plugins');
 
 module.exports = withPlugins(
   [
-    withCloudflarePages,
     withPWA,
+    withCloudflare,
     // Add other plugins here if necessary
   ],
   {
