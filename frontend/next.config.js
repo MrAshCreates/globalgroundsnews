@@ -10,21 +10,18 @@ const nextConfig = {
 
 const composedPlugins = withPlugins([withPWA], nextConfig);
 
-// Code-splitting and bundle optimization
+// Bundle optimization
 module.exports = {
   ...composedPlugins,
-  experimental: {
-    modularizeImports: {
-      lodash: {
-        transform: 'lodash/{{member}}',
-      },
-    },
-  },
   webpack: (config, { isServer }) => {
     if (isServer) {
-      config.optimization.splitChunks = false; // Disable splitChunks for server to reduce size
+      config.optimization.splitChunks = false; // Disable splitChunks for server-side
+      config.externals = config.externals || [];
+      config.externals.push({
+        // Exclude unnecessary server-side dependencies
+      });
     }
     return config;
   },
-  compress: true, // Enable compression for the build
+  compress: true, // Enable gzip compression
 };
