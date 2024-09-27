@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "npx next dev",
-    "build": "npx next build",
+    "build": "npx @cloudflare/next-on-pages@latest build",
     "deploy": "npx wrangler pages deploy .next --project-name globalgroundsnews",
     "start": "npx next start",
     "lint": "npx next lint"

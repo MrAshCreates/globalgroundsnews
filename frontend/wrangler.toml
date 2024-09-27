@@ -1,9 +1,0 @@
-name = "globalgroundsnews"
-main = "./.next/worker/index.js"
-compatibility_date = "2023-09-27"
-
-[build]
-command = "npx next build"
-
-[site]
-bucket = "./.next/static"

@@ -1,0 +1,12 @@
+# wrangler.toml
+
+name = "globalgroundsnews"
+compatibility_date = "2023-09-27"
+pages_build_output_dir = "./.cloudflare"
+
+[build]
+command = "npm run build"
+
+[env.production]
+[env.production.build]
+command = "npm run build"
