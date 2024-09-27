@@ -7,7 +7,7 @@ command = "npm run build"  # The build command for your Next.js project
 [site]
 bucket = "./.next"  # This points to the Next.js output directory containing static assets
 entry-point = "./workers"  # Points to your worker directory where the service worker logic is handled
-exclude = ["cache/webpack/server-production/*"]  # Exclude all large pack files
+exclude = ["cache/webpack/**"]  # Exclude all large pack files
 
 [env.production]
 account_id = "6e6777f3fa1e7f73bdeda9d13cb3dbd3"  # Replace with your Cloudflare account ID
