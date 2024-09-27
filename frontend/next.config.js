@@ -6,7 +6,7 @@ const withPWA = require('next-pwa')({
 });
 
 const { withPlugins } = require('next-compose-plugins');
-const { withCloudflarePagesAdapter } = require('@cloudflare/next-on-pages/adapter');
+const { withCloudflarePagesAdapter } = require('@cloudflare/next-on-pages');
 
 const nextConfig = {
   reactStrictMode: true,

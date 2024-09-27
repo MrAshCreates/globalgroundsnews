@@ -1,0 +1,10 @@
+# frontend/wrangler.toml
+
+name = "globalgroundsnews"
+compatibility_date = "2024-09-27" # Update to the current date
+
+[build]
+command = "npx @cloudflare/next-on-pages@latest build"
+
+[site]
+bucket = "./.next/static"
