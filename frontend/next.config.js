@@ -6,22 +6,24 @@ const { withPlugins } = require('next-compose-plugins');
 
 const nextConfig = {
   reactStrictMode: true,
-};
-
-const composedPlugins = withPlugins([withPWA], nextConfig);
-
-// Bundle optimization
-module.exports = {
-  ...composedPlugins,
+  experimental: {
+    modularizeImports: {
+      lodash: {
+        transform: 'lodash/{{member}}',
+      },
+    },
+  },
   webpack: (config, { isServer }) => {
     if (isServer) {
-      config.optimization.splitChunks = false; // Disable splitChunks for server-side
-      config.externals = config.externals || [];
-      config.externals.push({
-        // Exclude unnecessary server-side dependencies
-      });
+      config.optimization.splitChunks = {
+        chunks: 'all',
+        maxSize: 200000, // Reduce the maximum chunk size to 200 KB
+      };
+      config.externals = [...config.externals, /^pg$/, /^mysql$/, /^sqlite3$/, /^mongodb$/]; // Example of excluding large server-side packages
     }
     return config;
   },
-  compress: true, // Enable gzip compression
+  compress: true, // Enable compression for the build
 };
+
+module.exports = withPlugins([withPWA], nextConfig);
