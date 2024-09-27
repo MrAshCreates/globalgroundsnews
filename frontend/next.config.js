@@ -10,8 +10,9 @@ const nextConfig = {
 
 const composedPlugins = withPlugins([withPWA], nextConfig);
 
-module.exports = composedPlugins;
+// Code-splitting and bundle optimization
 module.exports = {
+  ...composedPlugins,
   experimental: {
     modularizeImports: {
       lodash: {
@@ -19,15 +20,11 @@ module.exports = {
       },
     },
   },
-};
-module.exports = {
   webpack: (config, { isServer }) => {
     if (isServer) {
-      config.optimization.splitChunks = false;
+      config.optimization.splitChunks = false; // Disable splitChunks for server to reduce size
     }
     return config;
   },
-};
-module.exports = {
-  compress: true,
+  compress: true, // Enable compression for the build
 };
