@@ -5,17 +5,22 @@ const withPWA = require('next-pwa')({
   // Additional PWA options if needed
 });
 
-const { withCloudflare } = require('@cloudflare/next-on-pages/plugin');
 const { withPlugins } = require('next-compose-plugins');
+const { withCloudflarePagesAdapter } = require('@cloudflare/next-on-pages/adapter');
 
-module.exports = withPlugins(
+const nextConfig = {
+  reactStrictMode: true,
+  // Other Next.js configuration options
+};
+
+// Compose your plugins
+const composedPlugins = withPlugins(
   [
     withPWA,
-    withCloudflare,
     // Add other plugins here if necessary
   ],
-  {
-    reactStrictMode: true,
-    // Other Next.js configuration options
-  }
+  nextConfig
 );
+
+// Export the configuration wrapped with the Cloudflare Pages adapter
+module.exports = withCloudflarePagesAdapter(composedPlugins);
