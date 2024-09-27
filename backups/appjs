@@ -1,0 +1,38 @@
+// backend/app.js
+// In app.js or server.js
+const express = require('express');
+const cors = require('cors');
+const helmet = require('helmet');
+const mongoose = require('mongoose');
+require('dotenv').config();
+
+const userRoutes = require('./routes/userRoutes');
+// Add other routes as needed
+
+const app = express();
+
+app.use(cors());
+app.use(helmet());
+app.use(express.json());
+
+// Connect to MongoDB
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => {
+    console.log('MongoDB connection established successfully.');
+    // Start your server here
+  })
+  .catch((error) => {
+    console.error('MongoDB connection error:', error);
+  });
+// Use routes
+app.use('/api/users', userRoutes);
+// Add other routes as needed
+
+// In app.js
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something broke!');
+});
+
+module.exports = app;
